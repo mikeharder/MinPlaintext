@@ -42,7 +42,8 @@ RUN dotnet help
 
 WORKDIR /app
 
-# copy sln and csproj, and restore as distinct layers
+# copy minimum and restore
+COPY NuGet.config ./
 COPY *.sln ./
 COPY MinPlaintext/*.csproj ./MinPlaintext/
 RUN dotnet restore --disable-parallel
