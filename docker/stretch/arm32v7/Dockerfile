@@ -50,7 +50,7 @@ RUN dotnet restore --disable-parallel
 
 # copy everything else and build
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish --no-restore -c Release -o out
 
 # build runtime image
 FROM microsoft/dotnet-nightly:2.1-runtime-stretch-slim-arm32v7
