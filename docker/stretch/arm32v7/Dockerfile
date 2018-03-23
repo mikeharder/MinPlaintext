@@ -52,7 +52,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
-FROM microsoft/dotnet:2.0-runtime-stretch-arm32v7
+FROM microsoft/dotnet-nightly:2.1-runtime-stretch-slim-arm32v7
 WORKDIR /app
 COPY --from=build /app/MinPlaintext/out ./
 ENTRYPOINT ["dotnet", "MinPlaintext.dll"]
