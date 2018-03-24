@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:sdk AS build
+FROM microsoft/dotnet-nightly:2.1-sdk AS build
 WORKDIR /app
 
 # copy sln and csproj, and restore as distinct layers
