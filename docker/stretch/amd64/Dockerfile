@@ -12,7 +12,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
-FROM microsoft/dotnet:runtime
+FROM microsoft/dotnet-nightly:2.1-runtime
 WORKDIR /app
 COPY --from=build /app/MinPlaintext/out ./
 ENTRYPOINT ["dotnet", "MinPlaintext.dll"]
