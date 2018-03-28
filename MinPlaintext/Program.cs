@@ -14,7 +14,7 @@ namespace MinKestrel
                 {
                     options.Listen(IPAddress.Any, 5000);
                 })
-                .Configure(app => app.UseMiddleware<PlaintextMiddleware>())
+                .Configure(app => app.UseMiddleware<PlaintextMiddleware>().UseMiddleware<JsonMiddleware>())
                 .Build()
                 .Run();
         }
