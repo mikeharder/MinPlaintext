@@ -21,6 +21,7 @@ namespace MinPlaintext
 #error Unknown target framework
 #endif
                 )
+                .UseIISIntegration()
                 .Configure(app => app.UseMiddleware<PlaintextMiddleware>().UseMiddleware<JsonMiddleware>())
                 .Build()
                 .Run();
