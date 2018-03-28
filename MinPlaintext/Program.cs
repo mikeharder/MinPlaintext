@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using System.Net;
 
-namespace MinKestrel
+namespace MinPlaintext
 {
     public class Program
     {
