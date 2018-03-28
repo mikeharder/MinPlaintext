@@ -10,10 +10,17 @@ namespace MinPlaintext
         public static void Main(string[] args)
         {
             new WebHostBuilder()
-                .UseKestrel(options =>
-                {
-                    options.Listen(IPAddress.Any, 5000);
-                })
+                .UseKestrel(
+#if NETCOREAPP2_0 || NETCOREAPP2_1
+                    options =>
+                    {
+                        options.Listen(IPAddress.Any, 5000);
+                    }
+#elif NETCOREAPP1_1
+#else
+#error Unknown target framework
+#endif
+                )
                 .Configure(app => app.UseMiddleware<PlaintextMiddleware>().UseMiddleware<JsonMiddleware>())
                 .Build()
                 .Run();
